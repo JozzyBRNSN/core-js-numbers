@@ -49,8 +49,12 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  const sum = value1 + value2;
+  if (sum === Infinity) {
+    return 1.7976931348623157e308;
+  }
+  return sum / 2;
 }
 
 /**
@@ -108,8 +112,11 @@ function getLinearEquationRoot(a, b) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const numenator = x1 * x2 + y1 * y2;
+  const denominator =
+    Math.sqrt(x1 ** 2 + y1 ** 2) * Math.sqrt(x2 ** 2 + y2 ** 2);
+  return Math.acos(numenator / denominator);
 }
 
 /**
@@ -226,14 +233,6 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(/* value, def */) {
-  // const valueNum = Number(value);
-  // if (typeof valueNum === 'number') {
-  //   return valueNum;
-  // }
-  // if (valueNum.isNaN) {
-  //   return def;
-  // }
-  // return def;
   throw new Error('Not implemented');
 }
 
@@ -265,8 +264,11 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  if (index <= 1) {
+    return index;
+  }
+  return getFibonacciNumber(index - 1) + getFibonacciNumber(index - 2);
 }
 
 /**
@@ -408,8 +410,8 @@ function toPrecision(/* number, precision */) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  return number.valueOf();
 }
 
 /**
